@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dbd
+  name: dbd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbd
+  template:
+    metadata:
+      labels:
+        app: dbd
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: redhat
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: ayush
+        - name: MYSQL_PASSWORD
+          value: redhat

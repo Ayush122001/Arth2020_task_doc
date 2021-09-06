@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dbd
+    app.kubernetes.io/managed-by: Helm
+  name: dbd
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: dbd
+  type: NodePort
+status:
+  loadBalancer: {}
